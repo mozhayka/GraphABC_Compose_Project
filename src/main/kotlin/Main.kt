@@ -11,8 +11,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
+import androidx.compose.ui.window.singleWindowApplication
 
 @Composable
 @Preview
@@ -28,12 +31,18 @@ fun App() {
     }
 }
 
-fun main() = application {
-    Window(onCloseRequest = ::exitApplication) {
-
-        DrawCircle(color = Color.Blue, center_x = 100.5f, center_y = 120.7f, r = 40f)
-        DrawCircle(color = Color.Red, center_x = 80.5f, center_y = 120f, r = 30f)
-        CanvasDrawExample()
-//        App()
-    }
+fun main() = singleWindowApplication(
+//    title = "Falling Balls", state = WindowState(size = DpSize(800.dp, 800.dp))
+) {
+    CanvasDrawExample()
 }
+
+//fun main() = application {
+//    Window(onCloseRequest = ::exitApplication) {
+//
+//        DrawCircle(color = Color.Blue, center_x = 100.5f, center_y = 120.7f, r = 40f)
+//        DrawCircle(color = Color.Red, center_x = 80.5f, center_y = 120f, r = 30f)
+//        CanvasDrawExample()
+////        App()
+//    }
+//}
