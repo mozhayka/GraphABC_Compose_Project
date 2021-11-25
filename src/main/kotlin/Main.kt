@@ -1,4 +1,5 @@
 // Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+import DrawFiguresFunctions.DrawCircle
 import androidx.compose.desktop.DesktopMaterialTheme
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.material.Button
@@ -8,6 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 
@@ -28,5 +30,7 @@ fun App() {
 fun main() = application {
     Window(onCloseRequest = ::exitApplication) {
         App()
+        DrawCircle(color = Color.Blue, center_x = 100.5f, center_y = 120.7f, r = 40f)
+        DrawCircle(color = Color.Red, center_x = 80.5f, center_y = 120f, r = 30f)
     }
 }
