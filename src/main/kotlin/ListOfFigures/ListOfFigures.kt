@@ -6,18 +6,21 @@ import Figures.Figure
 import androidx.compose.runtime.Composable
 
 class ListOfFigures {
-    var l = arrayListOf<Figure>()
+    companion object{
+        var l = arrayListOf<Figure>()
 
-    fun Add(f : Figure)
-    {
-        l.add(f)
+        fun Add(f : Figure)
+        {
+            l.add(f)
+        }
     }
 }
 
+
 @Composable
-fun DrawAll(list : ListOfFigures)
+fun DrawAll()
 {
-    list.l.forEach{
+    ListOfFigures.l.forEach{
         when(it.getName())
         {
             "DrawCircle" -> DrawCircle(it as Circle)

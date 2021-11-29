@@ -1,5 +1,6 @@
 package Figures
 
+import ListOfFigures.ListOfFigures
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -11,6 +12,10 @@ data class Circle(val color: Color,
              val center_x: Float,
              val center_y: Float,
              val r: Float) : Figure{
+
+    init {
+        ListOfFigures.Add(this)
+    }
 
     override fun getName(): String {
         return "DrawCircle"
