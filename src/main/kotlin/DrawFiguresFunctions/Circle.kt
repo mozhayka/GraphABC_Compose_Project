@@ -1,4 +1,0 @@
-package DrawFiguresFunctions
-
-class Circle {
-}
