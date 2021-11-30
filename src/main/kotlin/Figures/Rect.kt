@@ -9,10 +9,10 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 
-data class Rect (val color: Color,
-            val topLeft_x: Float,
-            val topLeft_y: Float,
-            val size: Size
+data class Rect (var color: Color,
+            var topLeft_x: Float,
+            var topLeft_y: Float,
+            var size: Size
 ) : Figure {
 
     init {
@@ -23,9 +23,9 @@ data class Rect (val color: Color,
         return "Rect"
     }
 
-//    fun draw() : (Circle) -> Unit
+//    fun draw() : (Rect) -> Unit
 //    {
-//        return DrawCircle
+//        return DrawRect
 //    }
 
 }
