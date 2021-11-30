@@ -6,19 +6,21 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 
-data class Circle(val color: Color,
-             val center_x: Float,
-             val center_y: Float,
-             val r: Float) : Figure{
+data class Rect (val color: Color,
+            val topLeft_x: Float,
+            val topLeft_y: Float,
+            val size: Size
+) : Figure {
 
     init {
         ListOfFigures.Add(this)
     }
 
     override fun getName(): String {
-        return "Circle"
+        return "Rect"
     }
 
 //    fun draw() : (Circle) -> Unit
@@ -29,9 +31,9 @@ data class Circle(val color: Color,
 }
 
 @Composable
-fun DrawCircle(c : Circle)
+fun DrawRect(r: Rect)
 {
     Canvas(modifier = Modifier.fillMaxSize()) {
-        drawCircle(c.color, center = Offset(c.center_x, c.center_y), radius = c.r)
+        drawRect(r.color, topLeft = Offset(r.topLeft_x, r.topLeft_y), size = r.size)
     }
 }

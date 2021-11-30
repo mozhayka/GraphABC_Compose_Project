@@ -1,8 +1,6 @@
 package ListOfFigures
 
-import Figures.Circle
-import Figures.DrawCircle
-import Figures.Figure
+import Figures.*
 import androidx.compose.runtime.Composable
 
 class ListOfFigures {
@@ -23,7 +21,8 @@ fun DrawAll()
     ListOfFigures.l.forEach{
         when(it.getName())
         {
-            "DrawCircle" -> DrawCircle(it as Circle)
+            "Circle" -> DrawCircle(it as Circle)
+            "Rect" -> DrawRect(it as Rect)
         }
     }
 }
