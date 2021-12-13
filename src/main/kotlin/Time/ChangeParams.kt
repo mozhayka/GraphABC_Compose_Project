@@ -29,25 +29,6 @@ fun DrawCircle2(c : Circle2)
     }
 }
 
-//@Composable
-//fun DrawDelay2()
-//{
-//    var color = remember { mutableStateOf(Color.Blue) }
-//    val c = Circle2(color, 10f, 10f, 10f)
-//
-//    DrawCircle2(c)
-//    var rad by remember { mutableStateOf(50f) }
-//    var y by remember { mutableStateOf(120f) }
-//
-//    y += 10f
-//    println(1)
-//    DrawCircle1(color, 100.5f, y, r = rad)
-//    Executors.newSingleThreadScheduledExecutor().schedule({
-//        rad += 10f
-//        color = Color.Red
-//    }, 6, TimeUnit.SECONDS)
-//
-//}
 
 @Composable
 fun DrCir()
