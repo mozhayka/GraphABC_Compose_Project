@@ -34,12 +34,18 @@ fun DrawCircle1(color: Color, center_x: Float, center_y: Float, r: Float)
 fun DrawDelay()
 {
     var rad by remember { mutableStateOf(50f) }
+    var y by remember { mutableStateOf(120f) }
     var color by remember { mutableStateOf(Color.Blue) }
-
-    DrawCircle1(color, 100.5f, center_y = 120.7f, r = rad)
-    Executors.newSingleThreadScheduledExecutor().schedule({
+    DrawCircle1(color, 100.5f, y, r = rad)
+    LaunchedEffect(true) {
+        delay(3000L)
+        println("delay")
         rad += 10f
+        println(rad)
         color = Color.Red
-    }, 6, TimeUnit.SECONDS)
+        y += 10f
+
+    }
+
 
 }
