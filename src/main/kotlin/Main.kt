@@ -2,11 +2,13 @@
 
 import Time.DrawCircleWithChangedParams
 import Time.drawC
+import Time.drawC1
 import androidx.compose.ui.window.singleWindowApplication
 
 
 fun main() = singleWindowApplication()
 {
+//    drawC1()
     drawC()
 //    ChangeParamsAfterDelay()
 }
