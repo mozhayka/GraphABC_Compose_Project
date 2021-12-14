@@ -12,8 +12,15 @@ fun ChangeParamsAfterDelay()
     var x by remember { mutableStateOf(100.5f) }
     var y by remember { mutableStateOf(120f) }
     var color by remember { mutableStateOf(Color.Blue) }
-    DrawCircle(color, x, y, rad)
+    var exists by remember { mutableStateOf(false) }
+
+    if (exists)
+        DrawCircle(color, x, y, rad)
+
     LaunchedEffect(true) {
+        delay(3000L)
+        exists = true
+
         delay(1000L)
         rad += 10f
 
