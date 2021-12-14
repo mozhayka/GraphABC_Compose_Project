@@ -17,32 +17,40 @@ import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 data class Circle2(var color: Color,
-                  var center_x: Float,
-                  var center_y: Float,
-                  var r: Float, )
+                  var x: Float,
+                  var y: Float,
+                  var r: Float )
 
 @Composable
 fun DrawCircle2(c : Circle2)
 {
     Canvas(modifier = Modifier.fillMaxSize()) {
-        drawCircle(color = c.color, center = Offset(c.center_x, c.center_y), radius = c.r)
+        drawCircle(color = c.color, center = Offset(c.x, c.y), radius = c.r)
     }
 }
 
 
 @Composable
-fun DrCir()
+fun DrawCircleWithChangedParams(c2 : Circle2)
 {
-    var c by remember { mutableStateOf(Circle2(Color.Blue, 10f, 10f, 10f))}
+    var c by remember { mutableStateOf(c2)}
     DrawCircle2(c)
+
     LaunchedEffect(true) {
-        delay(3000L)
-//        currentOnTimeout()
+        delay(1000L)
+        c = c.copy(x = c.x + 10f)
+
+        delay(1000L)
+        c = c.copy(r = c.r + 10f)
+
+        delay(1000L)
+        c = c.copy(color = Color.Green)
     }
-    Executors.newSingleThreadScheduledExecutor().schedule({
-        c.r += 10f
-        val d = c.copy()
-        c = d
-    }, 6, TimeUnit.SECONDS)
+}
+
+@Composable
+fun drawC()
+{
+    DrawCircleWithChangedParams(Circle2(Color.Blue, 100f, 100f, 10f))
 }
 
