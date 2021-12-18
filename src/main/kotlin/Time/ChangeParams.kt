@@ -1,40 +1,68 @@
 package Time
 
 import Figures.Figure
-import ListOfFigures.ListOfFigures
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import kotlinx.coroutines.delay
 
-class ListOfChanges {
-    companion object{
-        var l = arrayListOf<Pair<Circle3, Long>>()
+class Timer
+{
+    companion object
+    {
+        var delay : Long = 0
 
-        fun Add(f : Circle3, delay : Long)
+        fun Wait(time : Long)
         {
-            l.add(Pair(f, delay))
+            delay += time
+        }
+    }
+}
+
+class ListOfChanges
+{
+    companion object
+    {
+        var l = mutableMapOf<Figure, MutableList<Pair<Circle3, Long>>>()
+
+        fun Add(a : Figure, f : Circle3)
+        {
+            if(a !in l)
+                l[a] = ArrayList()
+            l[a]?.add(Pair(f, Timer.delay))
         }
     }
 }
 
 
-data class Circle2(var color: Color,
-                  var x: Float,
-                  var y: Float,
-                  var r: Float )
+data class Circle2(var color1: Color, var x1: Float, var y1: Float, var r1: Float ) : Figure
 {
-    companion object
-    {
-        var delay : Long = 0
-    }
+    var color = color1
+        set(value) {
+            field = value
+            save()
+        }
+
+    var x = x1
+        set(value) {
+            field = value
+            save()
+        }
+
+    var y = y1
+        set(value) {
+            field = value
+            save()
+        }
+
+    var r = r1
+        set(value) {
+            field = value
+            save()
+        }
 
     fun save()
     {
-        ListOfChanges.Add(Circle3(color, x, y, r), delay)
+        ListOfChanges.Add(this, Circle3(color, x, y, r))
     }
 
     init
@@ -42,22 +70,8 @@ data class Circle2(var color: Color,
         save()
     }
 
-    fun ChangeR(newR : Float)
-    {
-        r = newR
-        save()
-    }
-
-    fun ChangeX(newX : Float)
-    {
-        x = newX
-        save()
-    }
-
-    fun ChangeColor(newColor : Color)
-    {
-        color = newColor
-        save()
+    override fun getName(): String {
+        return "Circle"
     }
 }
 
@@ -65,17 +79,20 @@ data class Circle2(var color: Color,
 @Composable
 fun DrawCircleWithChangedParams()
 {
-    var c by remember { mutableStateOf(ListOfChanges.l[0].first)}
-    DrawCircle3(c)
-    var cur_delay = 0L
+    var keys = ListOfChanges.l.values
+    keys.forEach {
+        var d by remember { mutableStateOf(it[0].first) }
+        DrawCircle3(d)
+        var cur_delay = 0L
 
-    LaunchedEffect(true) {
-        ListOfChanges.l.forEach {
-            delay(it.second - cur_delay)
-            cur_delay = it.second
-            c = it.first
+        LaunchedEffect(true) {
+            it.forEach {
+                delay(it.second - cur_delay)
+                cur_delay = it.second
+                d = it.first
+            }
+
         }
-
     }
 }
 
@@ -83,25 +100,24 @@ fun DrawCircleWithChangedParams()
 fun drawC()
 {
     nonComp()
+
     DrawCircleWithChangedParams()
 }
 
-fun Wait(time : Long)
-{
-    Circle2.delay += time
-}
+
 
 fun nonComp()
 {
     val c = Circle2(Color.Blue, 100f, 100f, 10f)
-    Wait(1000L)
+    Timer.Wait(1000L)
 
-    c.ChangeR(c.r + 10f)
-    Wait(1000L)
+    c.r += 10f
+    Timer.Wait(1000L)
 
-    c.ChangeX(200f)
-    Wait(2000L)
+    c.x = 200f
+    Timer.Wait(1000L)
 
-    c.ChangeColor(Color.Cyan)
-    c.ChangeR(100f)
+    c.r = 100f
+    c.y = 130f
+    c.color = Color.Black
 }
