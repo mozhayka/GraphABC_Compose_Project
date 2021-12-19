@@ -3,10 +3,6 @@ package Figures
 import androidx.compose.runtime.Composable
 
 interface Figure
-{
-    fun getName() : String
-//     fun draw()
-}
 
 interface DrawableFigure
 {
@@ -19,6 +15,6 @@ fun Draw(f : DrawableFigure)
     when(f.getName())
     {
         "Circle" -> DrawCircle(f as DrawableCircle)
-//            "Rect" -> DrawRect(f as Rect)
+        "Rect" -> drawRect(f as DrawableRect)
     }
 }

@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 
-data class Circle2(var color1: Color, var x1: Float, var y1: Float, var r1: Float ) : Figure
+data class Circle(var color1: Color, var x1: Float, var y1: Float, var r1: Float ) : Figure
 {
     var color = color1
         set(value) {
@@ -36,18 +36,14 @@ data class Circle2(var color1: Color, var x1: Float, var y1: Float, var r1: Floa
 
     fun save()
     {
-        ListOfChanges.Add(this, DrawableCircle(color, x, y, r))
+        ListOfChanges.add(this, DrawableCircle(color, x, y, r))
     }
 
     init
     {
-        println("Init C2")
         save()
     }
 
-    override fun getName(): String {
-        return "Circle"
-    }
 }
 
 class DrawableCircle(var color: Color, var x: Float, var y: Float, var r: Float ) : DrawableFigure

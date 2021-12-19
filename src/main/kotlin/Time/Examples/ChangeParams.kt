@@ -1,13 +1,11 @@
 package Time
 
-import Figures.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import kotlinx.coroutines.delay
-import nonComposableMain
 
 @Composable
-fun ChangeParamsAfterDelay()
+fun drawExampleWithDelay1()
 {
     var rad by remember { mutableStateOf(50f) }
     var x by remember { mutableStateOf(100.5f) }

@@ -1,6 +1,5 @@
-package Time
+package Time.Examples
 
-import DrawFiguresFunctions.DrawCircle
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
@@ -24,7 +23,7 @@ fun DrawCircle3(c : Circle3)
 }
 
 @Composable
-fun DrawCircleWithChangedParams1(c2 : Circle3)
+fun changeParams(c2 : Circle3)
 {
     var c by remember { mutableStateOf(c2)}
     DrawCircle3(c)
@@ -42,7 +41,7 @@ fun DrawCircleWithChangedParams1(c2 : Circle3)
 }
 
 @Composable
-fun drawC1()
+fun drawExampleWithDelay2()
 {
-    DrawCircleWithChangedParams1(Circle3(Color.Blue, 100f, 100f, 10f))
+    changeParams(Circle3(Color.Blue, 100f, 100f, 10f))
 }

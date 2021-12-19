@@ -11,7 +11,7 @@ class ListOfChanges
     {
         var l = mutableMapOf<Figure, MutableList<Pair<DrawableFigure, Long>>>()
 
-        fun Add(a : Figure, f : DrawableFigure)
+        fun add(a : Figure, f : DrawableFigure)
         {
             if(a !in l)
                 l[a] = ArrayList()
@@ -28,9 +28,10 @@ fun drawAll()
     keys.forEach {
         var d by remember { mutableStateOf(it[0].first) }
         var exists by remember { mutableStateOf(false) }
+        var curDelay = 0L
+
         if (exists)
             Draw(d)
-        var curDelay = 0L
 
         LaunchedEffect(true) {
 
