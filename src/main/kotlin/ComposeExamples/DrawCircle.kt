@@ -1,4 +1,4 @@
-package DrawFiguresFunctions
+package ComposeExamples
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize

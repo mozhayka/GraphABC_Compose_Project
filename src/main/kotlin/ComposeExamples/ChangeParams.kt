@@ -14,7 +14,7 @@ fun drawExampleWithDelay1()
     var exists by remember { mutableStateOf(false) }
 
     if (exists)
-        DrawFiguresFunctions.DrawCircle(color, x, y, rad)
+        ComposeExamples.DrawCircle(color, x, y, rad)
 
     LaunchedEffect(true) {
         delay(3000L)
