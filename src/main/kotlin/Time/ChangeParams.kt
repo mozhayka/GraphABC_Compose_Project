@@ -1,16 +1,9 @@
 package Time
 
-import Figures.Circle2
-import Figures.DrawableCircle
-import Figures.DrawableFigure
-import Figures.Figure
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.fillMaxSize
+import Figures.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
 import kotlinx.coroutines.delay
+import nonComposableMain
 
 class ListOfChanges
 {
@@ -25,24 +18,6 @@ class ListOfChanges
             l[a]?.add(Pair(f, Timer.delay))
         }
     }
-}
-
-@Composable
-fun DrawCircle(c : DrawableCircle)
-{
-    Canvas(modifier = Modifier.fillMaxSize()) {
-        drawCircle(color = c.color, center = Offset(c.x, c.y), radius = c.r)
-    }
-}
-
-@Composable
-fun Draw(f : DrawableFigure)
-{
-    when(f.getName())
-        {
-            "Circle" -> DrawCircle(f as DrawableCircle)
-//            "Rect" -> DrawRect(f as Rect)
-        }
 }
 
 
@@ -66,32 +41,8 @@ fun DrawCircleWithChangedParams()
     }
 }
 
-@Composable
-fun drawC()
-{
-    nonComp()
-
-    DrawCircleWithChangedParams()
-}
 
 
 
-fun nonComp()
-{
-    val c = Circle2(Color.Blue, 100f, 100f, 10f)
-    Timer.Wait(1000L)
 
-    val c2 = Circle2(Color.Green, 300f, 300f, 40f)
-    c.r += 10f
-    Timer.Wait(500L)
 
-    c2.r += 10f
-    Timer.Wait(500L)
-
-    c.x = 200f
-    Timer.Wait(1000L)
-
-    c.r = 100f
-    c.y = 130f
-    c.color = Color.Black
-}

@@ -62,6 +62,14 @@ class DrawableCircle(var color: Color, var x: Float, var y: Float, var r: Float 
     }
 }
 
+@Composable
+fun DrawCircle(c : DrawableCircle)
+{
+    Canvas(modifier = Modifier.fillMaxSize()) {
+        drawCircle(color = c.color, center = Offset(c.x, c.y), radius = c.r)
+    }
+}
+
 //data class Circle(var color: Color,
 //                  var center_x: Float,
 //                  var center_y: Float,

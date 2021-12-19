@@ -1,15 +1,23 @@
-//import Figures.Circle
-//import Figures.Rect
-////import Time.Wait
-//import androidx.compose.ui.geometry.Size
-//import androidx.compose.ui.graphics.Color
+import Figures.Circle2
+import Time.Timer
+import androidx.compose.ui.graphics.Color
 
-//fun simpleMain()
-//{
-//    val c = Circle(Color.Blue, 100.5f, center_y = 120.7f, r = 40f)
-//    val c2 = Circle(color = Color.Green, center_x = 150.0f, center_y = 170.7f, r = 70f)
-//    val c3 = Circle(color = Color.Red, center_x = 200.0f, center_y = 220.7f, r = 60f)
-//    val r = Rect(color = Color.Black, topLeft_x = 240.5f, topLeft_y = 200f, size = Size(80f, 200f))
-////    Wait()
-//    c.r = 100f
-//}
+fun nonComposableMain()
+{
+    val c = Circle2(Color.Blue, 100f, 100f, 10f)
+    Timer.Wait(1000L)
+
+    val c2 = Circle2(Color.Green, 300f, 300f, 40f)
+    c.r += 10f
+    Timer.Wait(500L)
+
+    c2.r += 10f
+    Timer.Wait(500L)
+
+    c.x = 200f
+    Timer.Wait(1000L)
+
+    c.r = 100f
+    c.y = 130f
+    c.color = Color.Black
+}
