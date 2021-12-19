@@ -1,11 +1,50 @@
 package ListOfFigures
 
 import Figures.*
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
+import Time.Timer
+import androidx.compose.runtime.*
 import kotlinx.coroutines.delay
-import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
+
+class ListOfChanges
+{
+    companion object
+    {
+        var l = mutableMapOf<Figure, MutableList<Pair<DrawableFigure, Long>>>()
+
+        fun Add(a : Figure, f : DrawableFigure)
+        {
+            if(a !in l)
+                l[a] = ArrayList()
+            l[a]?.add(Pair(f, Timer.delay))
+        }
+    }
+}
+
+
+@Composable
+fun drawAll()
+{
+    val keys = ListOfChanges.l.values
+    keys.forEach {
+        var d by remember { mutableStateOf(it[0].first) }
+        var exists by remember { mutableStateOf(false) }
+        if (exists)
+            Draw(d)
+        var curDelay = 0L
+
+        LaunchedEffect(true) {
+
+            it.forEach {
+                delay(it.second - curDelay)
+                curDelay = it.second
+                d = it.first
+                if (!exists)
+                    exists = true
+            }
+        }
+    }
+}
+
 
 //class ListOfFigures {
 //    companion object{

@@ -9,6 +9,7 @@ class Timer
 
         fun Wait(time : Long)
         {
+            println("delay $time")
             delay += time
         }
     }

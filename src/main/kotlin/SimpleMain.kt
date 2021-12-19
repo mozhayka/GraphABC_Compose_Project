@@ -14,6 +14,7 @@ fun nonComposableMain()
     c2.r += 10f
     Timer.Wait(500L)
 
+    val c3 = Circle2(Color.Blue, 400f, 300f, 40f)
     c.x = 200f
     Timer.Wait(1000L)
 

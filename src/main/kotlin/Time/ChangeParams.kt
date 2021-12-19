@@ -2,45 +2,37 @@ package Time
 
 import Figures.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.graphics.Color
 import kotlinx.coroutines.delay
 import nonComposableMain
 
-class ListOfChanges
-{
-    companion object
-    {
-        var l = mutableMapOf<Figure, MutableList<Pair<DrawableFigure, Long>>>()
-
-        fun Add(a : Figure, f : DrawableFigure)
-        {
-            if(a !in l)
-                l[a] = ArrayList()
-            l[a]?.add(Pair(f, Timer.delay))
-        }
-    }
-}
-
-
 @Composable
-fun DrawCircleWithChangedParams()
+fun ChangeParamsAfterDelay()
 {
-    var keys = ListOfChanges.l.values
-    keys.forEach {
-        var d by remember { mutableStateOf(it[0].first) }
-        Draw(d)
-        var cur_delay = 0L
+    var rad by remember { mutableStateOf(50f) }
+    var x by remember { mutableStateOf(100.5f) }
+    var y by remember { mutableStateOf(120f) }
+    var color by remember { mutableStateOf(Color.Blue) }
+    var exists by remember { mutableStateOf(false) }
 
-        LaunchedEffect(true) {
-            it.forEach {
-                delay(it.second - cur_delay)
-                cur_delay = it.second
-                d = it.first
-            }
+    if (exists)
+        DrawFiguresFunctions.DrawCircle(color, x, y, rad)
 
-        }
+    LaunchedEffect(true) {
+        delay(3000L)
+        exists = true
+
+        delay(1000L)
+        rad += 10f
+
+        delay(1000L)
+        color = Color.Red
+
+        delay(1000L)
+        y += 100f
+        x += 100f
     }
 }
-
 
 
 

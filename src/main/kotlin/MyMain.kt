@@ -1,9 +1,9 @@
-import Time.DrawCircleWithChangedParams
+import ListOfFigures.drawAll
 import androidx.compose.runtime.Composable
 
 @Composable
 fun myMain()
 {
     nonComposableMain()
-    DrawCircleWithChangedParams()
+    drawAll()
 }
