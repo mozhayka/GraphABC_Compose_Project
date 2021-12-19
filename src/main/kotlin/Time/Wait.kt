@@ -35,16 +35,6 @@ fun ChangeParamsAfterDelay()
         y += 100f
         x += 100f
     }
-//    LaunchedEffect(true) {
-//        delay(3000L)
-//        println("delay")
-//        rad += 10f
-//        println(rad)
-//        delay(3000L)
-//        color = Color.Green
-//        y += 10f
-//
-//    }
 
 }
 
