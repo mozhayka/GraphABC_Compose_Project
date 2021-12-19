@@ -10,6 +10,7 @@ fun nonComposableMain()
     Timer.Wait(1000L)
 
     val r = Rect(Color.Red, 0f, 0f, Size(100f, 100f))
+    val r2 = Rect(Color.Cyan, 200f, 200f, Size(200f, 200f))
     val c2 = Circle(Color.Green, 300f, 300f, 40f)
     c.r += 10f
     Timer.Wait(500L)
@@ -17,6 +18,7 @@ fun nonComposableMain()
     c2.r += 10f
     Timer.Wait(500L)
 
+    r2.size = Size(200f, 100f)
     val c3 = Circle(Color.Blue, 400f, 300f, 40f)
     c.x = 200f
     Timer.Wait(1000L)

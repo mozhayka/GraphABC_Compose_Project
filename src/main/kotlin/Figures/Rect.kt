@@ -1,6 +1,5 @@
 package Figures
 
-//import ListOfFigures.ListOfFigures
 import ListOfFigures.ListOfChanges
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize

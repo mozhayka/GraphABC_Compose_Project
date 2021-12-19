@@ -9,13 +9,13 @@ import androidx.compose.ui.graphics.Color
 import kotlinx.coroutines.delay
 
 
-data class Circle3(var color: Color,
-                   var x: Float,
-                   var y: Float,
-                   var r: Float )
+data class CircleExample(var color: Color,
+                         var x: Float,
+                         var y: Float,
+                         var r: Float )
 
 @Composable
-fun DrawCircle3(c : Circle3)
+fun drawCircle(c : CircleExample)
 {
     Canvas(modifier = Modifier.fillMaxSize()) {
         drawCircle(color = c.color, center = Offset(c.x, c.y), radius = c.r)
@@ -23,10 +23,10 @@ fun DrawCircle3(c : Circle3)
 }
 
 @Composable
-fun changeParams(c2 : Circle3)
+fun changeParams(c2 : CircleExample)
 {
     var c by remember { mutableStateOf(c2)}
-    DrawCircle3(c)
+    drawCircle(c)
 
     LaunchedEffect(true) {
         delay(1000L)
@@ -43,5 +43,5 @@ fun changeParams(c2 : Circle3)
 @Composable
 fun drawExampleWithDelay2()
 {
-    changeParams(Circle3(Color.Blue, 100f, 100f, 10f))
+    changeParams(CircleExample(Color.Blue, 100f, 100f, 10f))
 }
