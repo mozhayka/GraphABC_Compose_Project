@@ -1,3 +1,4 @@
+import Figures.Arc
 import Figures.Circle
 import Figures.Rect
 import Time.Timer
@@ -17,9 +18,11 @@ fun nonComposableMain()
 
     c2.r += 10f
     Timer.Wait(500L)
+    r.color = Color.Green
 
     r2.size = Size(200f, 100f)
     val c3 = Circle(Color.Blue, 400f, 300f, 40f)
+    val a = Arc(Color.DarkGray, 30f, 90f, 50f)
     c.x = 200f
     Timer.Wait(1000L)
 

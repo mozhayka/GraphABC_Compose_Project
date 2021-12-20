@@ -6,9 +6,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 
-data class Circle(var color1: Color, var x1: Float, var y1: Float, var r1: Float ) : Figure
+data class Arc(var color1: Color, var startAngle1: Float, var sweepAngle1: Float, var r1: Float ) : Figure
 {
     var color = color1
         set(value) {
@@ -16,13 +17,13 @@ data class Circle(var color1: Color, var x1: Float, var y1: Float, var r1: Float
             save()
         }
 
-    var x = x1
+    var startAngle = startAngle1
         set(value) {
             field = value
             save()
         }
 
-    var y = y1
+    var sweepAngle = sweepAngle1
         set(value) {
             field = value
             save()
@@ -36,7 +37,7 @@ data class Circle(var color1: Color, var x1: Float, var y1: Float, var r1: Float
 
     fun save()
     {
-        ListOfChanges.add(this, DrawableCircle(color, x, y, r))
+        ListOfChanges.add(this, DrawableArc(color, startAngle, sweepAngle, r))
     }
 
     init
@@ -46,17 +47,17 @@ data class Circle(var color1: Color, var x1: Float, var y1: Float, var r1: Float
 
 }
 
-class DrawableCircle(var color: Color, var x: Float, var y: Float, var r: Float ) : DrawableFigure
+class DrawableArc(var color: Color, var startAngle: Float, var sweepAngle: Float, var r: Float ) : DrawableFigure
 {
     override fun getName(): String {
-        return "Circle"
+        return "Arc"
     }
 }
 
 @Composable
-fun drawCircle(c : DrawableCircle)
+fun drawArc(c : DrawableArc)
 {
     Canvas(modifier = Modifier.fillMaxSize()) {
-        drawCircle(color = c.color, center = Offset(c.x, c.y), radius = c.r)
+        drawArc(color = c.color, c.startAngle, c.sweepAngle, useCenter = true, size = Size(c.r, c.r))
     }
 }

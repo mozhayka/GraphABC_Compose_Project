@@ -5,7 +5,6 @@ import nonComposableExamples.car
 @Composable
 fun myMain()
 {
-//    nonComposableMain()
-    car()
+    nonComposableMain()
     drawAll()
 }

@@ -14,7 +14,8 @@ fun Draw(f : DrawableFigure)
 {
     when(f.getName())
     {
-        "Circle" -> DrawCircle(f as DrawableCircle)
+        "Circle" -> drawCircle(f as DrawableCircle)
         "Rect" -> drawRect(f as DrawableRect)
+        "Arc" -> drawArc(f as DrawableArc)
     }
 }
