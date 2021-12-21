@@ -26,7 +26,7 @@ fun nonComposableMain()
 
     r2.size = Size(200f, 100f)
     val c3 = Circle(Color.Blue, 400f, 300f, 40f)
-    val a = Arc(Color.DarkGray, 30f, 90f, 50f)
+    val a = Arc(Color.DarkGray, 30f, 90f, 100f, 60f, 60f)
     c.x = 200f
     Timer.Wait(1000L)
 
