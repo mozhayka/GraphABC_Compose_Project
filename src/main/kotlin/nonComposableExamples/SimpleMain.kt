@@ -1,5 +1,8 @@
+package nonComposableExamples
+
 import Figures.Arc
 import Figures.Circle
+import Figures.Line
 import Figures.Rect
 import Time.Timer
 import androidx.compose.ui.geometry.Size
@@ -13,6 +16,7 @@ fun nonComposableMain()
     val r = Rect(Color.Red, 0f, 0f, Size(100f, 100f))
     val r2 = Rect(Color.Cyan, 200f, 200f, Size(200f, 200f))
     val c2 = Circle(Color.Green, 300f, 300f, 40f)
+    val l = Line(Color.Magenta, 10f, 10f, 300f, 400f, 5f)
     c.r += 10f
     Timer.Wait(500L)
 

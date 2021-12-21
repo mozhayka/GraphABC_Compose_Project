@@ -1,6 +1,6 @@
 import ListOfFigures.drawAll
 import androidx.compose.runtime.Composable
-import nonComposableExamples.car
+import nonComposableExamples.nonComposableMain
 
 @Composable
 fun myMain()

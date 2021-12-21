@@ -17,5 +17,6 @@ fun Draw(f : DrawableFigure)
         "Circle" -> drawCircle(f as DrawableCircle)
         "Rect" -> drawRect(f as DrawableRect)
         "Arc" -> drawArc(f as DrawableArc)
+        "Line" -> drawLine(f as DrawableLine)
     }
 }
