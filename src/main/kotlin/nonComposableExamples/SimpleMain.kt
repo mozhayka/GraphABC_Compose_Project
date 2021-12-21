@@ -10,22 +10,17 @@ import androidx.compose.ui.graphics.Color
 
 fun nonComposableMain()
 {
-    val c = Circle(Color.Blue, 100f, 100f, 10f)
+    val c = Circle(Color.Blue, 110f, 110f, 10f)
     Timer.Wait(1000L)
 
-    val r = Rect(Color.Red, 0f, 0f, Size(100f, 100f))
-    val r2 = Rect(Color.Cyan, 200f, 200f, Size(200f, 200f))
-    val c2 = Circle(Color.Green, 300f, 300f, 40f)
-    val l = Line(Color.Magenta, 10f, 10f, 300f, 400f, 5f)
+    val r = Rect(Color.Red, 100f, 100f, Size(400f, 20f))
+    val l = Line(Color.Magenta, 100f, 100f, 220f, 220f, 5f)
     c.r += 10f
     Timer.Wait(500L)
 
-    c2.r += 10f
     Timer.Wait(500L)
     r.color = Color.Green
 
-    r2.size = Size(200f, 100f)
-    val c3 = Circle(Color.Blue, 400f, 300f, 40f)
     val a = Arc(Color.DarkGray, 30f, 90f, 100f, 60f, 60f)
     c.x = 200f
     Timer.Wait(1000L)

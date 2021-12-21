@@ -1,5 +1,6 @@
 package Time
 
+import ComposeExamples.DrawCircle
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import kotlinx.coroutines.delay
@@ -32,6 +33,16 @@ fun drawExampleWithDelay1()
     }
 }
 
+@Composable
+fun delayExample()
+{
+    var color by remember { mutableStateOf(Color.Blue) }
+    DrawCircle(color, 100f, 80f, 50f)
+    LaunchedEffect(true) {
+        delay(1000L)
+        color = Color.Red
+    }
+}
 
 
 

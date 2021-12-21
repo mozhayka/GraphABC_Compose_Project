@@ -1,14 +1,14 @@
 import ListOfFigures.drawAll
 import androidx.compose.runtime.Composable
-import nonComposableExamples.car
-import nonComposableExamples.clock
-import nonComposableExamples.nonComposableMain
+import nonComposableExamples.nonComposable
 
 @Composable
 fun myMain()
 {
-    nonComposableMain()
+//    nonComposableMain()
+    nonComposable()
 //    clock()
 //    car()
     drawAll()
+//    delayExample()
 }
