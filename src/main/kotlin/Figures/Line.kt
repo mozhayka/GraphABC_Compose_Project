@@ -52,7 +52,7 @@ data class Line(var color1: Color,
             save()
         }
 
-    fun save()
+    override fun save()
     {
         ListOfChanges.add(this, DrawableLine(color, x1, y1, x2, y2, strokeWidth))
     }

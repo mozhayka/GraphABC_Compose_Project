@@ -3,6 +3,9 @@ package Figures
 import androidx.compose.runtime.Composable
 
 interface Figure
+{
+    fun save()
+}
 
 interface DrawableFigure
 {

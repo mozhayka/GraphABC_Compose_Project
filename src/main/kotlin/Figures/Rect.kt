@@ -38,7 +38,7 @@ data class Rect (var color1 : Color,
             save()
         }
 
-    fun save()
+    override fun save()
     {
         ListOfChanges.add(this, DrawableRect(color, x, y, size))
     }

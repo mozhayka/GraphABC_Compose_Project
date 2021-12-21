@@ -35,7 +35,7 @@ data class Arc(var color1: Color, var startAngle1: Float, var sweepAngle1: Float
             save()
         }
 
-    fun save()
+    override fun save()
     {
         ListOfChanges.add(this, DrawableArc(color, startAngle, sweepAngle, r))
     }

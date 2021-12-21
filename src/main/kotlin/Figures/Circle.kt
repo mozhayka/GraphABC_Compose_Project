@@ -34,7 +34,7 @@ data class Circle(var color1: Color, var x1: Float, var y1: Float, var r1: Float
             save()
         }
 
-    fun save()
+    override fun save()
     {
         ListOfChanges.add(this, DrawableCircle(color, x, y, r))
     }
